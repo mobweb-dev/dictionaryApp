@@ -1,0 +1,48 @@
+<ion-view title="Register">
+    <ion-content>
+        <div class="wrap _flex_sa_c">
+            <div class="logo _top">
+                <div class="hamb" menu-toggle="left"><img src="images/hamb.png" alt=""></div>
+                <img src="images/logo_no_shadow.png" alt="">
+                <div class="logo__text">Léa Knows</div>
+            </div>
+            <form ng-submit="fn.register(data.credentials)" class="form moveUp30">
+
+                <div class="form__input " ng-class="{'_error':LoginTaken}">
+
+                    <div class="form__txt">USERNAME</div>
+                    <input type="text" ng-model="data.credentials.login" ng-change="inputChanged()"
+                           ng-class="{'errorInput':LoginTaken}">
+                    <small>Username already taken</small>
+                </div>
+
+                <div class="form__input " ng-class="{'_error':EmailError}">
+                    <div class="form__txt">EMAIL</div>
+                    <input type="text" ng-model="data.credentials.email">
+                    <small>{{EmailMsg}}</small>
+
+                </div>
+                <div class="form__txt">PASSWORD</div>
+                <input type="password" ng-model="data.credentials.password">
+                <p class="form__new" ng-click="$parent.NeedCode=true">Already have code?</p>
+                <div ng-show="NeedCode">
+                    <div class="form__input " ng-class="{'_error':CodeError}">
+                        <div class="form__txt">EMAIL CONFIRMATION CODE</div>
+                        <input type="text" ng-model="data.credentials.token">
+                        <small>{{EmailMsg}}</small>
+                    </div>
+                </div>
+                <button type="submit" ng-disabled="!data.credentials.email || LoginTaken">Register</button>
+                <p class="form__new">Already registered? <a ui-sref="app.login">Login</a></p>
+                <br>
+                <br>
+                <div class="links">
+                    <p><a ng-click="GotoLink('https://www.leaknows.com/terms-of-service')">Terms of Service </a></p>
+                    <p><a ng-click="GotoLink('https://www.leaknows.com/privacy-policy')">Privacy Policy </a></p>
+                </div>
+
+            </form>
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,41 @@
+<ion-view>
+    <ion-content>
+        <div class="wrap _flex_sb_c">
+            <div class="head _flex_sb_c">
+                <div class="hamb" menu-toggle="left"><img src="images/hamb.png" alt=""></div>
+                <div class="head__txt">CONTACT US</div>
+
+            </div>
+            <div class="b_contactUs ">
+                <div class="b_about__txt">
+                    <p>
+                        Do you have any suggestion? Don't hesitate to contact us by filling in the form below.
+                    </p>
+                    <form ng-submit="fn.contactUs(data)" class="form moveUp30">
+                        <div class="form__input ">
+                            <div class="form__txt">Subject</div>
+                            <input type="text" ng-model="data.subject">
+
+                        </div>
+
+                        <div class="form__input ">
+                            <div class="form__txt">Message</div>
+                            <textarea ng-model="data.message"></textarea>
+                        </div>
+
+
+                        <button type="submit" ng-disabled="!data.subject">Send</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+</ion-view>
+
+
+
+
+
+

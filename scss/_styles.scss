@@ -1,0 +1,98 @@
+/*
+ *  Your app styles
+ */
+.single_cards{
+	width: 85%;
+	margin-bottom: auto;
+	margin-top: auto;
+	.lSSlideWrapper,
+	.lSSlideOuter{
+		overflow: visible;
+	}
+	.cards{
+		width: auto;
+		max-width: none;
+	}
+	.single_card{
+		border-radius: 10px;
+		position: relative;
+		padding-bottom: 8px;
+		overflow: hidden;
+		.cards__item{
+			margin-bottom: 0;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		.cards__delete,.cards__archive{
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+		&__body{
+			min-height: 40vh;
+			background-color: #fff;
+			padding: 20px;
+			flex-direction: column;
+			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
+			box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+		}
+		&__txt{
+			font-family: Roboto;
+			font-weight: 500;
+			font-size: 2em;
+			color: #363636;
+			letter-spacing: 1px;
+			margin-bottom: auto;
+			margin-top: auto;
+		}
+		&__tap{
+			color: #aeadad;
+			font-size: .8em;
+			font-family: Roboto;
+			font-weight: 300;
+		}
+		&__answer{
+			position: absolute;
+			width: 100%;
+			height: calc(100% - 6px);
+			top: 0;
+			z-index: 5;
+			display: flex;
+			flex-direction: column;
+			visibility: hidden;
+			opacity: 0;
+			transform: scale(.7);
+			//transition: $t;
+			border-bottom-left-radius: 10px !important;
+			border-bottom-right-radius: 10px !important;
+			&.visible{
+				transform: none;
+			}
+			img{
+				max-width: 30px;
+				max-height: 30px;
+			}
+			.cards__icons{
+				margin-top: auto;
+				width: 100%;
+			}
+			>.cards__txt{
+				margin-bottom: auto;
+				flex-grow: 0;
+				.ico_close{
+					margin-left: auto;
+					margin-right: -18px;
+				}
+			}
+			&_txt{
+				text-align: center;
+				padding: 20px;
+				color: #fff;
+				font-family: Roboto;
+				font-weight: 500;
+				font-size: 3em;
+				letter-spacing: 1px;
+			}
+		}
+	}
+}

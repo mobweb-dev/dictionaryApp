@@ -1,0 +1,39 @@
+<div class="menu _flex_sb_fs ">
+    <div class="logo _flex_fs_fe">
+        <img src="images/logo_no_shadow.png" alt="">
+        <div class="logo__text">Léa Knows</div>
+    </div>
+
+    <nav class="menu__nav">
+        <div class="menu__item" ui-sref="app.translate" ng-click="closeSideMenu()"><img src="images/1.png"
+                                                                                        alt="">Translate
+        </div>
+        <div class="menu__item _with_submenu"><img src="images/2.png" alt="">Cards <span><img
+                src="images/arr_right.png" alt=""></span></div>
+        <div class="menu__submenu">
+            <div class="menu__item" ui-sref="app.cards({type:'all'})" ng-click="closeSideMenu()">All
+                <small>{{$root.user.usercards.total}}</small>
+            </div>
+            <div class="menu__item" ui-sref="app.cards({type:'starred'})" ng-click="closeSideMenu()">Starred
+                <small>{{$root.user.usercards.starred}}</small>
+            </div>
+            <div class="menu__item" ui-sref="app.cards({type:'archived'})" ng-click="closeSideMenu()">
+                Archived
+                <small>{{$root.user.usercards.archived}}</small>
+            </div>
+        </div>
+        <div class="menu__item" ui-sref="app.AboutUs" ng-click="closeSideMenu()"><img src="images/3.png"
+                                                                                      alt="">About Us
+        </div>
+        <div class="menu__item" ui-sref="app.ContactUs" ng-click="closeSideMenu()"><img src="images/4.png"
+                                                                                        alt="">Contact Us
+        </div>
+        <div class="menu__item" ui-sref="app.feedback" ng-click="closeSideMenu()"><img src="images/5.png"
+                                                                                       alt="">Feedback
+        </div>
+    </nav>
+    <div class="menu__logout" ui-sref="logout" ng-click="closeSideMenu()"><img src="images/logout.png"
+                                                                               alt="">Logout
+    </div>
+</div>
+

@@ -1,0 +1,131 @@
+<ion-view>
+    <ion-tabs class="tabs-icon-top tabs-positive">
+        <div class="b_filter" ng-if="user.useremail">
+            <div class="b_filter__item" ui-sref="app.cards({type:'all'})">
+                <img src="images/2.png" alt="">
+                <span>All cards</span>
+            </div>
+            <div class="b_filter__item" ui-sref="app.cards({type:'starred'})">
+                <img src="images/star_blue.png" alt="">
+                <span>Starred</span>
+            </div>
+            <div class="b_filter__item" ui-sref="app.cards({type:'archived'})">
+                <img src="images/archived_blue.png" alt="">
+                <span>Archived</span>
+            </div>
+        </div>
+        <div class="b_filter" ng-if="!user.useremail" ng-click="showLoginAlert()">
+            <div class="b_filter__item" >
+                <img src="images/2_gray.png" alt="">
+                <span>All cards</span>
+            </div>
+            <div class="b_filter__item" >
+                <img src="images/star_gray.png" alt="">
+                <span>Starred</span>
+            </div>
+            <div class="b_filter__item">
+                <img src="images/archived_gray.png" alt="">
+                <span>Archived</span>
+            </div>
+        </div>
+
+
+    </ion-tabs>
+
+    <ion-content>
+
+
+        <div class="wrap _flex_sb_c">
+
+            <div class="head _flex_sb_c">
+                <div class="hamb" menu-toggle="left"><img src="images/hamb.png" alt=""></div>
+                <div class="head__txt">TRANSLATE</div>
+                <div class="LoginLink" ui-sref="app.login" ng-if="!user.useremail">Login <img src="images/login.png"></div>
+            </div>
+
+            <div class="b_translate">
+                <div class="b_translate__controls">
+                    <div class="select-wrp">
+
+                        <div class="custom_select">
+                            <div class="current_option " data-value="" ng-click="showList1()"  ng-class="{'active':showMenuLanguages1}"><span><img
+                                    src="{{LanguageFrom.image}}">{{LanguageFrom.text}}</span><b>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="7">
+                                    <path d="M10.5 1.5L6.9 5 6.9 5 5.5 6.4 4.1 5 4.1 5 0.6 1.5 2 0.1 5.5 3.6 9 0.1 10.5 1.5Z"
+                                          fill="#d5d5d5"></path>
+                                </svg>
+                            </b></div>
+
+                            <ul class="_scroll custom_options active" ng-show="showMenuLanguages1"
+                                style="    max-height: 200px;     overflow-y: scroll;  width: 50%;    ">
+                                <li ng-repeat="language in avaliableLanguages" ng-click="changeFrom(language)"><img
+                                        src="{{language.image}}"> {{language.text}}
+                                </li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+                    <div class="b_translate__to"><img src="images/arrow_blue.png" alt="" ng-click="switchLang()"></div>
+                    <div class="select-wrp">
+                        <div class="custom_select">
+                            <div class="current_option " data-value="" ng-click="showList2()" ng-class="{'active':showMenuLanguages2}"><span><img
+                                    src="{{LanguageTo.image}}">{{LanguageTo.text}}</span><b>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="11" height="7">
+                                    <path d="M10.5 1.5L6.9 5 6.9 5 5.5 6.4 4.1 5 4.1 5 0.6 1.5 2 0.1 5.5 3.6 9 0.1 10.5 1.5Z"
+                                          fill="#d5d5d5"></path>
+                                </svg>
+                            </b></div>
+
+                            <ul class="_scroll custom_options active" ng-show="showMenuLanguages2"
+                                style="    max-height: 200px;     overflow: scroll;     width: 50%;    left: 50%;">
+                                <li ng-repeat="language in avaliableLanguages" ng-click="changeTo(language)"
+                                    ng-if="language.code!='Auto'"><img
+                                        src="{{language.image}}"> {{language.text}}
+                                </li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <form ng-submit="translate(data)" style="    width: 100%;">
+                    <div class="b_translate__input">
+
+                        <textarea placeholder="Enter text to translate..." name="word" ng-model="data.text"
+                                  ng-change="inputChanged()" ng-keypress="keyPressed($event)"></textarea>
+                        <div class="b_translate__input_close" ng-click="data.text=''">×</div>
+                    </div>
+                </form>
+
+
+                <div class="button-block">
+                    <a href="#" class="button-yellow"  ng-click="translate(selectedEngine.engine) "  >{{selectedEngine.text}} <span class="button-yellow-carret {{carretClass}}" ng-click="changeEngine(); $event.stopPropagation();">^</span></a>
+                    <a href="#" class="button-yellow-lvl2 {{lvl2}}" ng-click="selectEngine(AvaliableEngine)">{{AvaliableEngine.text}}             </a>
+                </div>
+
+            </div>
+            <div class="b_past">
+                <h3>Past translations </h3>
+                <div class="cards__item _flex_sb_c _yellow" ng-repeat="translate in PastTranslations" ng-click="ShowCard(translate, $index)">
+
+                    <div class="cards__txt _flex_fs_c"><img class="cards__country"
+                                                            src="{{translate.FromImage}}" alt="">
+                        <span ng-bind-html="translate.enteredText" ></span></div>
+                    <div class="cards__arr_to">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="58" height="41" viewBox="0 0 58 41">
+                            <path d="M1 30.4L30.9 30.4 30.9 41 58 20.5 30.9 0 30.9 10.6 1 10.6 1 30.4Z"
+                                  fill="rgb(205, 205, 205)"/>
+                        </svg>
+                    </div>
+                    <div class="cards__txt _right _flex_fs_c"><span ng-bind-html="translate.translatedText"></span><img
+                            class="cards__country" src="{{translate.ToImage}}" alt=""></div>
+                </div>
+
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

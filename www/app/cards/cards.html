@@ -1,0 +1,109 @@
+<ion-view>
+
+    <ion-content>
+        <div class="wrap _flex_sb_c">
+            <div class="head _flex_sb_c">
+                <div class="hamb" menu-toggle="left"><img src="images/hamb.png" alt=""></div>
+                <div class="head__txt">CARDS {{data.type}}</div>
+                <div class="filter">
+                    <img src="images/filter.png" alt="" ng-click="FiltermenuAll=!FiltermenuAll">
+
+                    <div class="filter__menu" ng-class={visible:FiltermenuAll}>
+                        <div class="filter__head">Filter</div>
+                        <div class="filter__item" ng-click="applyFilter('starred')">Starred</div>
+                        <div class="filter__item" ng-click="applyFilter('recent')">Most Recent</div>
+                        <div class="filter__item" ng-click="applyFilter('viewed')">Most Viewed</div>
+                        <div class="filter__item" ng-click="applyFilter('asc')">A → Z</div>
+                        <div class="filter__item" ng-click="applyFilter('desc')">Z → A</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cards">
+                <div class="cards__item _flex_sb_fs {{card.color}}"
+                     ng-repeat="card in data.cards| orderBy:$root.propertyName:$root.reverse"
+                     ng-click="ShowCard(card, $index)">
+                    <span>{{card.enteredText}}</span>
+                    <div class="cards__icons _flex_sb_c">
+                        <div class="cards__txt _flex_fs_c"><img class="cards__country"
+                                                                src="{{card.FromImage}}"
+                                                                alt="">
+                            <div class="cards__arr_to">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 58 41">
+                                    <path d="M1 30.4L30.9 30.4 30.9 41 58 20.5 30.9 0 30.9 10.6 1 10.6 1 30.4Z"
+                                          fill="rgb(205, 205, 205)"/>
+                                </svg>
+                            </div>
+
+                            <img class="cards__country"
+                                 src="{{card.ToImage}}"
+                                 alt="">
+                        </div>
+
+                        <div class="ico_delete" ng-click="showPopupDelete(card);  $event.stopPropagation();">
+                            <img src="images/trash_white.png" alt="">
+                        </div>
+                        <div class="ico_archive" ng-click="showPopupArchive(card); $event.stopPropagation();">
+                            <img src="images/archive_white.png" alt="">
+                        </div>
+                        <div class="ico_star" ng-click="StarCard(card); $event.stopPropagation();">
+
+
+                            <img src="images/star_out.png" ng-if="card.status!='starred'" alt="">
+                            <img src="images/star.png" alt="" ng-if="card.status == 'starred'">
+                        </div>
+                        <div class="ico_menu" ng-click="SelectColor(card); $event.stopPropagation();">
+                            <img src="images/menu2.png" alt="">
+                        </div>
+                    </div>
+                    <div class="cards__delete _flex_c_c">
+        				<span class="ico_delete">
+        					<img src="images/trash_white.png" alt="">
+        				</span>
+
+                        <div class="cards__txt">Delete</div>
+                    </div>
+                    <div class="cards__archive _flex_c_c" ng-class="{'active': card.newArchived}">
+                        <div class="ico_archive">
+                            <img src="images/archive_white.png" alt="">
+                        </div>
+                        <div class="cards__txt">Archive</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ion-content>
+
+    <div class="popupColors" ng-class="{visible: ChooseColor}">
+        <div class="popup__colors">
+            <div class="popup__color_item _blue" ng-click="setColor('_blue')"></div>
+            <div class="popup__color_item _violet" ng-click="setColor('_violet')"></div>
+            <div class="popup__color_item _yellow" ng-click="setColor('_yellow')"></div>
+            <div class="popup__color_item _pink" ng-click="setColor('_pink')"></div>
+            <div class="popup__color_item _azure_2" ng-click="setColor('_azure_2')"></div>
+            <div class="popup__color_item _orange_2" ng-click="setColor('_orange_2')"></div>
+
+          <!--  <div class="popup__color_item _violet_3" ng-click="setColor('_violet_3')"></div>
+            <div class="popup__color_item _green_2" ng-click="setColor('_green_2')"></div>
+           <div class="popup__color_item _red_2" ng-click="setColor('_red_2')"></div>
+            <div class="popup__color_item _gold" ng-click="setColor('_gold')"></div>
+         <div class="popup__color_item _pink" ng-click="setColor('_pink')"></div>
+            <div class="popup__color_item _gray" ng-click="setColor('_gray')"></div>
+            <div class="popup__color_item _violet_3" ng-click="setColor('_violet_3')"></div>
+            <div class="popup__color_item _orange" ng-click="setColor('_orange')"></div>
+            <div class="popup__color_item _blue_2" ng-click="setColor('_blue_2')"></div>
+            <div class="popup__color_item _green_3" ng-click="setColor('_green_3')"></div>
+            <div class="popup__color_item _green_2" ng-click="setColor('_green_2')"></div>
+            <div class="popup__color_item _red_3" ng-click="setColor('_red_3')"></div>
+            <div class="popup__color_item _violet_4" ng-click="setColor('_violet_4')"></div>
+            <div class="popup__color_item _beige" ng-click="setColor('_beige')"></div>
+          <div class="popup__color_item _yellow_2" ng-click="setColor('_yellow_2')"></div>
+            <div class="popup__color_item _black" ng-click="setColor('_black')"></div>
+            <div class="popup__color_item _green_4" ng-click="setColor('_green_4')"></div>
+            <div class="popup__color_item _yellow_3" ng-click="setColor('_yellow_3')"></div> -->
+        </div>
+        <div class="popup__ok" ng-click="close()">OK</div>
+    </div>
+
+</ion-view>

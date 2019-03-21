@@ -1,0 +1,21 @@
+{
+  "name": "todo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic1",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ],
+  "id": "17a11d5b",
+  "gulp": {
+    "enabled": false
+  }
+}

@@ -1,0 +1,73 @@
+<ion-side-menus Persistent='true'>
+    <ion-side-menu-content>
+        <ion-nav-view name="menuContent">
+        </ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+        <!-- <ion-content> -->
+            <div class="menu _flex_sb_fs ">
+                <div class="logo _flex_fs_fe">
+                    <img src="images/logo_no_shadow.png" alt="">
+                    <div class="logo__text">Léa Knows</div>
+                </div>
+
+                <nav class="menu__nav">
+                    <div class="menu__item" ui-sref="app.translate" menu-close><img src="images/arrow_blue.png"
+                                                                                    alt="">Translate
+                    </div>
+                    <div class="menu__item _with_submenu" ><img src="images/2.png" alt="">Cards <span  ng-class="{'active':user.useremail}"><img
+                            src="images/arr_right.png" alt=""></span></div>
+                    <div class="menu__submenu "  ng-class="{'active':user.useremail}"  ng-if="user.useremail">
+                        <div class="menu__item" ui-sref="app.cards({type:'all'})" menu-close><img src="images/2.png" alt="">All
+                            <small>{{$root.user.usercards.total}}</small>
+                        </div>
+                        <div class="menu__item" ui-sref="app.cards({type:'starred'})" menu-close><img src="images/star_blue.png" alt="">Starred
+                            <small>{{$root.user.usercards.starred}}</small>
+                        </div>
+                        <div class="menu__item" ui-sref="app.cards({type:'archived'})" menu-close><img src="images/archived_blue.png" alt="">
+                            Archived
+                            <small>{{$root.user.usercards.archived}}</small>
+                        </div>
+                    </div>
+                    <div class="menu__submenu "  ng-class="{'active':user.useremail}"  ng-if="!user.useremail">
+                        <div class="menu__item"  ng-click="showLoginAlert()" ><img src="images/2_gray.png" alt="">All
+                            <small class="grayBadge">{{$root.PastTranslations.length}}</small>
+                        </div>
+                        <div class="menu__item"  ng-click="showLoginAlert()"><img src="images/star_gray.png" alt="">Starred
+                            <small  class="grayBadge">0</small>
+                        </div>
+                        <div class="menu__item"  ng-click="showLoginAlert()"><img src="images/archived_gray.png" alt="">
+                            Archived
+                            <small  class="grayBadge">0</small>
+                        </div>
+                    </div>
+
+                    <div class="menu__item" ui-sref="app.AboutUs" menu-close><img src="images/3.png"
+                                                                                  alt="">About Us
+                    </div>
+
+                    <div class="menu__item" ui-sref="app.AboutUs" menu-close><img src="images/4.png"
+                                                                                  alt="">Contact Us
+                    </div>
+
+                    <div class="menu__item" ui-sref="app.feedback" menu-close><img src="images/message_blue.png"
+                                                                                   alt="">Feedback
+                    </div>
+                </nav>
+                <div class="menu__logout" ui-sref="logout" menu-close ng-if="user.useremail" ><img src="images/logout_white.png"
+                                                                           alt="">Logout
+                </div>
+                <div class="menu__login" ui-sref="app.login" menu-close ng-if="!user.useremail" ><img src="images/login.png"
+                                                                                                   alt="">Login
+                </div>
+
+            </div>
+
+
+        <!-- </ion-content> -->
+
+
+    </ion-side-menu>
+
+</ion-side-menus>

@@ -1,0 +1,34 @@
+<ion-view title="Login">
+
+
+    <ion-content>
+        <div class="  wrap _flex_sa_c">
+            <div class=" logo _top">
+                <div class="hamb hambLogin" menu-toggle="left"><img src="images/hamb.png" alt=""></div>
+                <img src="images/logo_no_shadow.png" alt="">
+                <div class="logo__text">Léa Knows</div>
+            </div>
+            <form ng-submit="fn.login(data.credentials)" class="form moveUp30">
+                <div class="form__input " ng-class="{'_error':loginError}">
+
+                    <div class="form__txt">USERNAME</div>
+                    <input type="text" ng-model="data.credentials.login">
+                    <small>{{LoginErrorMsg}}</small>
+
+                </div>
+                <div class="form__txt">PASSWORD</div>
+                <input type="password" ng-model="data.credentials.password">
+                <a ui-sref="forgotPassword" class="form__forgot">Forgot username or password</a>
+                <button type="submit" ng-disabled="!data.credentials.login">Sign In</button>
+                <p class="form__new">New user? <a ui-sref="app.register">Register</a></p>
+                <br>
+                <br>
+                <div class="links">
+                    <p><a ng-click="GotoLink('https://www.leaknows.com/terms-of-service')">Terms of Service </a></p>
+                    <p><a ng-click="GotoLink('https://www.leaknows.com/privacy-policy')">Privacy Policy </a></p>
+                </div>
+
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

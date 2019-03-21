@@ -1,0 +1,46 @@
+{
+  "name": "todo",
+  "version": "0.0.1",
+  "description": "An Ionic project",
+  "devDependencies": {
+    "@ionic/v1-toolkit": "^1.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^3.1.0"
+  },
+  "dependencies": {
+    "@ionic-native/in-app-browser": "^5.2.0",
+    "@ionic-native/toast": "^5.2.0",
+    "@ionic/pro": "2.0.4",
+    "cordova-android": "6.3.0",
+    "cordova-ios": "4.5.5",
+    "cordova-plugin-add-swift-support": "^1.7.2",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-inappbrowser": "^3.0.0",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-transport-security": "^0.1.2",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-plugin-x-toast": "^2.7.2",
+    "ionic-plugin-keyboard": "^2.2.1",
+    "node-sass": "^4.11.0"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-x-toast": {},
+      "cordova-plugin-add-swift-support": {},
+      "cordova-plugin-transport-security": {},
+      "cordova-plugin-whitelist": {},
+      "ionic-plugin-keyboard": {}
+    },
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+}
